@@ -73,7 +73,7 @@
 
       function ShowAllReservation() {
           var xhttp = new XMLHttpRequest();
-          xhttp.open("GET", "http://127.0.0.1:8000/registers/api", true);
+          xhttp.open("GET", "https://crud-testing-api.herokuapp.com/registers/api", true);
           xhttp.send();
 
           xhttp.onreadystatechange = function () {
@@ -100,7 +100,7 @@
                   };
 
                   var resId = e.target.closest("tr").childNodes[0].innerHTML;
-                  xhttp.open("DELETE", "http://127.0.0.1:8000/delete/api/" + resId, true);
+                  xhttp.open("DELETE", "https://crud-testing-api.herokuapp.com/delete/api/" + resId, true);
                   xhttp.send();
               })
           }
@@ -114,7 +114,8 @@
     var textId = e.target.value
     var xhr = new XMLHttpRequest()
     
-    xhr.open('GET', 'http://127.0.0.1:8000/detail/api/'+textId, true)
+    xhr.open('GET', 'https://crud-testing-api.herokuapp.com/detail/api/'+textId, true)
+
     
     xhr.onload = function(){
         if(this.status == 200){

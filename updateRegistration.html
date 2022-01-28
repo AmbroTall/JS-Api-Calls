@@ -40,7 +40,7 @@
     
         <div class="form-group">
             <label for="Image">Profile:</label>
-            <input type="text" class="form-control" id="Image" />
+            <input type="file" class="form-control" id="Image" />
         </div>
         <div class="form-group">
             <label for="Name">Name:</label>
@@ -79,14 +79,14 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var response = JSON.parse(this.responseText);
-                    document.getElementById("Image").value = response.img;
+                    document.getElementById("Image").img = response.img;
                     document.getElementById("Name").value = response.name;
                     document.getElementById("Gender").value = response.gender;
                     document.getElementById("Date").value = response.date;
                 }
             };
 
-            xhttp.open("GET", "http://127.0.0.1:8000/detail/api/" + id, true);
+            xhttp.open("GET", "https://crud-testing-api.herokuapp.com/detail/api/" + id, true);
             xhttp.send();
         }
 
@@ -102,7 +102,7 @@
                 }
             };
 
-            xhttp.open("PUT", "http://127.0.0.1:8000/update/api", true);
+            xhttp.open("PUT", "https://crud-testing-api.herokuapp.com/update/api", true);
             data = new FormData();
             data.append("Image", document.getElementById("Image").value);
             data.append("Name", document.getElementById("Name").value);
